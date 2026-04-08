@@ -126,6 +126,10 @@ Service: Unknown service
 
 ### Problem 5: Caesar Cipher (20 points)
 
+A **Caesar cipher** is one of the oldest encryption techniques — it works by shifting each letter in a message a fixed number of positions through the alphabet. For example, with a shift of 3, `'a'` becomes `'d'`, `'b'` becomes `'e'`, and so on. When you reach the end of the alphabet, it wraps around (so `'z'` with a shift of 1 becomes `'a'`).
+
+📖 [Learn more: Caesar Cipher — Wikipedia](https://en.wikipedia.org/wiki/Caesar_cipher)
+
 Write a program that asks the user to enter a word and a shift value, then displays the word with each letter shifted forward by that many positions in the alphabet. Only shift letters — leave other characters unchanged. You may assume lowercase input.
 
 **Example:**
@@ -140,7 +144,11 @@ Enter shift: 2
 Encoded: zab
 ```
 
-*Hint: Use `ord()` and `chr()` to work with character codes. The letter `'a'` has an ASCII value of 97.*
+**Hints:**
+
+* Use `ord()` to convert a character to its ASCII number, and `chr()` to convert back. The letter `'a'` has an ASCII value of 97, and `'z'` is 122.
+* To handle wrap-around (e.g., `'z'` + 1 = `'a'`), use the modulo operator `%`. The formula looks like: `chr((ord(c) - 97 + shift) % 26 + 97)`
+* Loop through each character in the word. If it's a letter (`c.isalpha()`), apply the shift. Otherwise, keep it as-is.
 
 ***
 
